@@ -40,5 +40,8 @@ export class VoitureService {
   rechercheVoiture(marque: string): Observable<Voiture> {
     return this.httpClient.get<Voiture>(this.apiUrl + "recherche/" + marque);
   }
+  getQRCodeImage(voitureId: number): Observable<Blob> {
+    return this.httpClient.get(`${this.apiUrl}${voitureId}/qrcode`, { responseType: 'blob' });
+  }
 }
 

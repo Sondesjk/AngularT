@@ -3,6 +3,7 @@ import { VoitureService } from '../voiture.service';
 import { Voiture } from '../models/Voiture.model';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 declare var $:any;
 @Component({
   selector: 'app-voitures-list',
@@ -11,15 +12,29 @@ declare var $:any;
 })
 export class VoituresListComponent implements OnInit {
   voitures: Voiture[] =[];
+  qrCodeImages: { [key: string]: SafeUrl } = {};
 
-  constructor(private voitureService :VoitureService,private router:Router) {}
+  constructor(private voitureService :VoitureService,private router:Router,private sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
-    this.voitureService.getAllVoitures().subscribe(listVoiture => 
-        {
+    this.voitureService.getAllVoitures().subscribe(
+      (listVoiture) => {
         this.voitures = listVoiture;
+        this.voitures.forEach((voiture) => {
+          this.voitureService.getQRCodeImage(voiture.id).subscribe(
+            (qrCodeImage) => {
+              const blobUrl = URL.createObjectURL(qrCodeImage);
+              this.qrCodeImages[voiture.id] = this.sanitizer.bypassSecurityTrustUrl(blobUrl);
+            },  
+            (error) => {
+              console.error('Error retrieving QR code image:', error);
+            }
+          );
+        });
       },
-      
+      (error) => {
+        console.error('Error retrieving voitures:', error);
+      }
     );
   }
   delete(id:number){
