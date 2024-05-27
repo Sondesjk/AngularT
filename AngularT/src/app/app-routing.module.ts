@@ -23,6 +23,10 @@ import { Commande1Component } from './commande1/commande1.component';
 import { Commande2Component } from './commande2/commande2.component';
 import { AddcommandeComponent } from './addcommande/addcommande.component';
 import { AdminComponent } from './admin/admin.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { CancelComponent } from './cancel/cancel.component';
+import { SucesssComponent } from './sucesss/sucesss.component';
+import { ListVoituresFrontComponent } from './list-voitures-front/list-voitures-front.component';
 const routes: Routes = [
 
   {path:"home",component:HomeComponent},
@@ -49,6 +53,10 @@ const routes: Routes = [
   {path:'commande1',component:Commande1Component},
   {path:'commande2',component:Commande2Component},
   {path:'admin',component:AdminComponent},
+  {path: 'checkout/:id', component: CheckoutComponent},
+  { path: 'cancel', component: CancelComponent },
+  { path: 'success', component: SucesssComponent },
+  { path: 'listVoituresFront', component:ListVoituresFrontComponent},
  ];
 
 @NgModule({

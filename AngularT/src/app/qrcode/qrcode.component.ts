@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { QRCodeModule } from 'angularx-qrcode'; // Importez QRCodeModule depuis angularx-qrcode
+//import { QRCodeModule } from 'angularx-qrcode'; // Importez QRCodeModule depuis angularx-qrcode
 
 @Component({
   selector: 'app-qrcode',

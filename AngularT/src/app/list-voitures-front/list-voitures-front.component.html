@@ -1,0 +1,14 @@
+<br>
+<div class="search-hero">
+    <input class="form-control" type="text" placeholder="Cherché ici ..." [(ngModel)]="searchText">
+</div>
+<div class="card-container">
+    <div class="card" *ngFor="let voiture of voitures | searchPipe: searchText">
+        <img src="../../assets/images/voitures.png" alt="{{ voiture.marque }}" class="card-image">
+      <h2>{{ voiture.marque }} {{ voiture.annee }}</h2>
+      <p>Matricule: {{ voiture.matricule }}</p>
+      <p>Numéro de châssis: {{ voiture.numDeChoussi }}</p>
+      <p>Prix: {{ voiture.prix }}</p>
+      <button (click)="goToCheckout(voiture)">Acheter</button>
+    </div>
+  </div>

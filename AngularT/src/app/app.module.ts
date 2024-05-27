@@ -30,6 +30,15 @@ import { Commande2Component } from './commande2/commande2.component';
 import { CommandeeComponent } from './commandee/commandee.component';
 import { CommandesComponent } from './commandes/commandes.component';
 import { AdminComponent } from './admin/admin.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CancelComponent } from './cancel/cancel.component';
+import { SucesssComponent } from './sucesss/sucesss.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { ListVoituresFrontComponent } from './list-voitures-front/list-voitures-front.component';
+import { Ng2SearchPipe, Ng2SearchPipeModule } from 'ng2-search-filter';
+import { SearchPipePipe } from './search-pipe.pipe';
 
 imports: [
   FormsModule
@@ -47,13 +56,17 @@ imports: [
     AboutComponent,
     ContactComponent,
     AjouterComponent,
-    AddvoitureComponent,VoituresListComponent, LoginComponent, UpdateVoitureComponent, UsersListComponent, AddUserComponent, UpdateUserComponent, RechercheComponent, CommandeListComponent, AddcommandeComponent, CommandeComponent, Commande1Component, Commande2Component, CommandeeComponent, CommandesComponent, AdminComponent, 
+    AddvoitureComponent,VoituresListComponent, LoginComponent, UpdateVoitureComponent, UsersListComponent, AddUserComponent, UpdateUserComponent, RechercheComponent, CommandeListComponent, AddcommandeComponent, CommandeComponent, Commande1Component, Commande2Component, CommandeeComponent, CommandesComponent, AdminComponent, CancelComponent, SucesssComponent, CheckoutComponent, ListVoituresFrontComponent, SearchPipePipe, 
    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-   HttpClientModule, FormsModule,
+    HttpClientModule, 
+    FormsModule, 
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

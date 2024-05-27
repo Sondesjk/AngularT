@@ -3,6 +3,7 @@ import { VoitureService } from '../voiture.service';
 import { Voiture } from '../models/Voiture.model';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { Ng2SearchPipe, Ng2SearchPipeModule } from 'ng2-search-filter';
 declare var $:any;
 @Component({
   selector: 'app-voitures-list',
